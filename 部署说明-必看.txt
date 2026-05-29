@@ -1,0 +1,63 @@
+═══════════════════════════════════════════════════════
+  PAWHAVEN 网站部署 - 最简单方法（不用 GitHub Actions）
+═══════════════════════════════════════════════════════
+
+【为什么一直 404？】
+GitHub Pages 要在「docs 文件夹」里找 index.html。
+你的 index.html 在 out 文件夹里，所以网页打不开。
+
+【已帮你生成好】
+项目里的 docs 文件夹 = 完整网站，直接上传这个即可。
+
+═══════════════════════════════════════════════════════
+  方法一：GitHub 网页上传（推荐，不用装软件）
+═══════════════════════════════════════════════════════
+
+1. 打开 https://github.com/ggu90278-svg/PAWHAVEN
+
+2. 如果已有 docs 文件夹：点进 docs → 删除里面所有文件
+   如果没有 docs：点 Add file → Create new file → 文件名输入 docs/.gitkeep 创建文件夹
+
+3. 点 Add file → Upload files
+
+4. 打开你电脑上的文件夹：
+   /Volumes/idkzh/外贸图片/宠物用品/独立站/docs
+
+5. 把 docs 里面的【全部内容】拖进网页上传：
+   - index.html
+   - 404.html
+   - _next 文件夹
+   - images 文件夹
+   - .nojekyll
+
+6. 点 Commit changes
+
+7. 打开 https://github.com/ggu90278-svg/PAWHAVEN/settings/pages
+   - Source 选：Deploy from a branch
+   - Branch 选：main
+   - Folder 选：/docs
+   - 点 Save
+
+8. 等 1-2 分钟，访问：
+   https://ggu90278-svg.github.io/PAWHAVEN/
+
+═══════════════════════════════════════════════════════
+  方法二：终端推送（会命令再用）
+═══════════════════════════════════════════════════════
+
+cd "/Volumes/idkzh/外贸图片/宠物用品/独立站"
+npm run export-docs
+git add docs
+git commit -m "Update website for GitHub Pages"
+git push origin main
+
+然后去 Settings → Pages → Branch: main, Folder: /docs
+
+═══════════════════════════════════════════════════════
+  不要上传的文件夹
+═══════════════════════════════════════════════════════
+  node_modules  （太大，不需要）
+  .next         （临时文件）
+  out           （用 docs 代替，不要上传 out）
+
+═══════════════════════════════════════════════════════
